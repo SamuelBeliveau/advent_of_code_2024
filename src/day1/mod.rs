@@ -29,13 +29,16 @@ pub fn solve_b() {
 
 fn read_pairs() -> Vec<(u32, u32)> {
     let contents = fs::read_to_string("inputs/day1.txt").unwrap();
-    contents.lines().map(|line| {
-        let entry: Vec<_> = line
-            .split("   ")
-            .map(|location_str| location_str.parse::<u32>().unwrap())
-            .collect();
-        (entry[0], entry[1])
-    }).collect()
+    contents
+        .lines()
+        .map(|line| {
+            let entry: Vec<_> = line
+                .split("   ")
+                .map(|location_str| location_str.parse::<u32>().unwrap())
+                .collect();
+            (entry[0], entry[1])
+        })
+        .collect()
 }
 
 fn split_lists(pairs: Vec<(u32, u32)>) -> (Vec<u32>, Vec<u32>) {
